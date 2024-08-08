@@ -11,12 +11,13 @@
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
     "prettier": "prettier --write */**/*.{js,jsx,json,ts,tsx,scss,css,md}",
-    "prepare": "husky && husky install"
+    "prepare": "husky && husky install",
+    "lint-staged": "lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --max-warnings 0 ."
+      "pnpm prettier --write",
+      "pnpm lint --max-warnings 0 ."
     ]
   },
   "dependencies": {

@@ -1,17 +1,17 @@
-import { Button, buttonVariants } from '~/components/ui/button';
-import { cn } from '~/lib/utils';
+import { Label } from "@radix-ui/react-label"
 
-import { Icons } from '~/components/icons';
-import { signIn } from '~/config/auth';
-import { Label } from '@radix-ui/react-label';
+import { Icons } from "~/components/icons"
+import { Button, buttonVariants } from "~/components/ui/button"
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-} from '~/components/ui/card';
-import { Input } from '~/components/ui/input';
+} from "~/components/ui/card"
+import { Input } from "~/components/ui/input"
+import { signIn } from "~/config/auth"
+import { cn } from "~/lib/utils"
 
 export const UserAuthForm = () => {
   return (
@@ -26,11 +26,10 @@ export const UserAuthForm = () => {
         <div className="grid gap-4 space-x-2">
           <form
             action={async (formData) => {
-              'use server';
-              await signIn('resend', formData);
+              "use server"
+              await signIn("resend", formData)
             }}
-            className="space-y-4"
-          >
+            className="space-y-4">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -49,14 +48,15 @@ export const UserAuthForm = () => {
           </div>
           <form
             action={async () => {
-              'use server';
-              await signIn('github');
-            }}
-          >
+              "use server"
+              await signIn("github", { redirectTo: "/dashboard" })
+            }}>
             <Button
               type="submit"
-              className={cn(buttonVariants({ variant: 'secondary' }), 'w-full')}
-            >
+              className={cn(
+                buttonVariants({ variant: "secondary" }),
+                "w-full",
+              )}>
               <Icons.gitHub className="mr-2 h-4 w-4" />
               Sign in with Github
             </Button>
@@ -64,5 +64,5 @@ export const UserAuthForm = () => {
         </div>
       </CardContent>
     </Card>
-  );
-};
+  )
+}

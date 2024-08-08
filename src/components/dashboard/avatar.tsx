@@ -1,13 +1,15 @@
-import { Button } from '~/ui/button';
+import Image from "next/image"
+
+import { signOut } from "~/config/auth"
+import { Button } from "~/ui/button"
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuItem,
-} from '~/ui/dropdown-menu';
-import Image from 'next/image';
+  DropdownMenuTrigger,
+} from "~/ui/dropdown-menu"
 
 export function AvatarMenu() {
   return (
@@ -16,8 +18,7 @@ export function AvatarMenu() {
         <Button
           variant="outline"
           size="icon"
-          className="overflow-hidden rounded-full"
-        >
+          className="overflow-hidden rounded-full">
           <Image
             src="/placeholder-user.jpg"
             width={36}
@@ -33,8 +34,16 @@ export function AvatarMenu() {
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuItem>Support</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Logout</DropdownMenuItem>
+        <DropdownMenuItem>
+          <form
+            action={async () => {
+              "use server"
+              await signOut()
+            }}>
+            <button type="submit">Sign Out</button>
+          </form>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

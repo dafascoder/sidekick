@@ -5,4 +5,5 @@ public
 node_modules
 next-env.d.ts
 next.config.ts
+drizzle
 pnpm-lock.yaml

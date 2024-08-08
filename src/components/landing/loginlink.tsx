@@ -1,9 +1,9 @@
-'use client';
-import { Icons } from '~/components/icons';
-import { buttonVariants } from '~/components/ui/button';
-import Link from 'next/link';
+"use client"
 
-import { cn } from '~/lib/utils';
+import Link from "next/link"
+
+import { buttonVariants } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
 
 export const LoginLink = () => {
   return (
@@ -11,12 +11,11 @@ export const LoginLink = () => {
       <Link
         href="/auth"
         className={cn(
-          buttonVariants({ variant: 'secondary', size: 'sm' }),
-          'px-4',
-        )}
-      >
+          buttonVariants({ variant: "secondary", size: "sm" }),
+          "px-4",
+        )}>
         Login
       </Link>
     </nav>
-  );
-};
+  )
+}

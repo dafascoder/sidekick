@@ -1,36 +1,36 @@
-import { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from "lucide-react"
 
 export type NavItem = {
-  title: string;
-  href: string;
-  disabled?: boolean;
-};
+  title: string
+  href: string
+  disabled?: boolean
+}
 
-export type MainNavItem = NavItem;
+export type MainNavItem = NavItem
 
 export type SiteConfig = {
-  name: string;
-  description: string;
-  url?: string;
-  ogImage?: string;
+  name: string
+  description: string
+  url?: string
+  ogImage?: string
   links?: {
-    twitter?: string;
-    github?: string;
-  };
-};
+    twitter?: string
+    github?: string
+  }
+}
 
 export type LandingConfig = {
-  mainNav: MainNavItem[];
-};
+  mainNav: MainNavItem[]
+}
 
 export type DashboardConfig = {
-  sidebarNav: SidebarNavItem[];
-};
+  sidebarNav: SidebarNavItem[]
+}
 
 export type SidebarNavItem = {
-  title: string;
-  disabled?: boolean;
-  external?: boolean;
-  icon?: LucideIcon;
-  href: string;
-};
+  title: string
+  disabled?: boolean
+  external?: boolean
+  icon?: LucideIcon
+  href: string
+}

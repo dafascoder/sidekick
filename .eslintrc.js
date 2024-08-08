@@ -1,67 +1,61 @@
+const { resolve } = require("node:path")
+
+const project = resolve(process.cwd(), "tsconfig.json")
+
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  plugins: ["@typescript-eslint", "only-warn"],
+  globals: {
+    React: true,
+    JSX: true,
+  },
   parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
+    project,
   },
   env: {
-    browser: true,
-    es2021: true,
     node: true,
   },
-  root: true,
-  extends: [
-    'next',
-    'eslint:recommended',
-    'prettier',
-    'next/core-web-vitals',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks'],
-  rules: {
-    // JavaScript rules
-    'prefer-const': 'warn',
-    'no-var': 'warn',
-    'no-unused-vars': 'warn',
-    'object-shorthand': 'warn',
-    'quote-props': ['warn', 'as-needed'],
-    // TypeScript rules
-    '@typescript-eslint/array-type': [
-      'warn',
-      {
-        default: 'array',
-      },
-    ],
-    '@typescript-eslint/consistent-type-assertions': [
-      'warn',
-      {
-        assertionStyle: 'as',
-        objectLiteralTypeAssertions: 'never',
-      },
-    ],
-    // React rules
-    'react/jsx-fragments': ['warn', 'syntax'], // Shorthand syntax for React fragments
-    'react/jsx-filename-extension': [
-      'warn',
-      {
-        extensions: ['ts', 'tsx'],
-      },
-    ],
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    'prettier/prettier': 'warn',
-  },
   settings: {
-    react: {
-      version: 'detect',
+    "import/resolver": {
+      typescript: {
+        project,
+      },
     },
   },
-};
+  ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "node_modules/",
+    "dist/",
+    "tests/*.test.ts",
+  ],
+  overrides: [
+    {
+      files: ["*.js?(x)", "*.ts?(x)"],
+    },
+  ],
+  rules: {
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { prefer: "type-imports", fixStyle: "separate-type-imports" },
+    ],
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/no-unnecessary-condition": [
+      "error",
+      {
+        allowConstantLoopConditions: true,
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    ],
+    "no-console": ["error", { allow: ["warn", "error"] }],
+  },
+}

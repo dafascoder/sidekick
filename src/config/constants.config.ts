@@ -22,18 +22,10 @@ const landingConfig: LandingConfig = {
       "Your sidekick for managing your hardware and new hires. Get started today!",
     cta: {
       title: "Get Started",
-      href: "/docs",
+      href: "/auth",
     },
   },
   mainNav: [
-    {
-      title: "Features",
-      href: "/#features",
-    },
-    {
-      title: "Roadmap",
-      href: "/#roadmap",
-    },
     {
       title: "Documentation",
       href: "/docs",

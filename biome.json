@@ -62,12 +62,17 @@
 				"useIsNan": "error",
 				"useValidForDirection": "error",
 				"useYield": "error"
+				
 			},
 			"style": {
 				"noNamespace": "error",
 				"noNonNullAssertion": "error",
 				"useAsConstAssertion": "error",
-				"useBlockStatements": "off"
+				"useBlockStatements": "off",
+				"useImportType": {
+					"level": "error",
+					"fix": "safe"
+				}
 			},
 			"suspicious": {
 				"noAsyncPromiseExecutor": "error",
@@ -99,6 +104,14 @@
 			}
 		},
 		"ignore": ["**/.*.js", "**/node_modules/", "**/dist/", "tests/*.test.ts"]
+	},
+	"json": {
+		"formatter": {
+			"enabled": true,
+			"lineEnding": "lf",
+			"lineWidth": 80,
+			"trailingCommas": "all"
+		}
 	},
 	"javascript": {
 		"formatter": {
@@ -134,7 +147,8 @@
 					"style": {
 						"noArguments": "error",
 						"noVar": "error",
-						"useConst": "error"
+						"useConst": "error",
+						"useShorthandFunctionType": "error"
 					},
 					"suspicious": {
 						"noDuplicateClassMembers": "off",

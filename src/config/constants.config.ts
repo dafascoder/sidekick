@@ -3,15 +3,10 @@ import { icons } from "lucide-react"
 import type { DashboardConfig, LandingConfig } from "~/types"
 
 const imagePaths = {
-  bolt: {
-    "1x": "/images/bolt/bolt.png",
-    "2x": "/images/bolt/bolt@2x.png",
-    "3x": "/images/bolt/bolt@3x.png",
-  },
   logo: {
-    "1x": "/images/logo/logo.png",
-    "2x": "/images/logo/logo@2x.png",
-    "3x": "/images/logo/logo@3x.png",
+    "1x": "/static/brand/logo.png",
+    "2x": "/static/brand/logo@2x.png",
+    "3x": "/static/brand/logo@3x.png",
   },
   text: {
     "1x": "/images/text/text.png",
@@ -81,4 +76,11 @@ const sidebarConfig: DashboardConfig = {
   ],
 }
 
-export { sidebarConfig, imagePaths, landingConfig }
+const siteConfig = {
+  links: {
+    twitter: "https://twitter.com/Robin",
+    github: "https://github.com/Robin",
+  },
+}
+
+export { sidebarConfig, imagePaths, landingConfig, siteConfig }

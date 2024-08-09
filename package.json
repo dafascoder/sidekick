@@ -16,19 +16,26 @@
     "lint-staged": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "pnpm prettier --write",
-      "pnpm lint --max-warnings 0 ."
+   "*.{ts,tsx}": [  
+      "biome check --write --organize-imports-enabled=false --no-errors-on-unmatched",
+      "biome check --write --unsafe --no-errors-on-unmatched",
+      "biome format --write --no-errors-on-unmatched", 
+      "biome lint --write --no-errors-on-unmatched"
     ]
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.4.2",
+    "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@t3-oss/env-nextjs": "^0.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.32.2",
@@ -40,10 +47,14 @@
     "pg": "^8.12.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.52.2",
+    "sonner": "^1.5.0",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@next/eslint-plugin-next": "^14.2.5",
     "@types/node": "^20",
@@ -58,6 +69,9 @@
     "eslint-config-turbo": "^2.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-unused-imports": "^4.1.2",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.8",
     "postcss": "^8",

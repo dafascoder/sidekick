@@ -5,6 +5,7 @@ import { ChevronLeft } from "lucide-react"
 
 import { UserAuthForm } from "~/components/forms/userAuthForm"
 import { buttonVariants } from "~/components/ui/button"
+import { imagePaths } from "~/config/constants.config"
 import { cn } from "~/lib/utils"
 
 export default async function LoginPage() {
@@ -15,7 +16,8 @@ export default async function LoginPage() {
         className={cn(
           buttonVariants({ variant: "ghost" }),
           "absolute left-4 top-4 md:left-8 md:top-8",
-        )}>
+        )}
+      >
         <>
           <ChevronLeft className="mr-2 h-4 w-4" />
           Back
@@ -23,7 +25,7 @@ export default async function LoginPage() {
       </Link>
       <div className="h-20">
         <Image
-          src="/logo.svg"
+          src={imagePaths.logo["1x"]}
           alt="logo"
           width={80}
           height={80}

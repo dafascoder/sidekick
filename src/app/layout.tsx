@@ -6,6 +6,7 @@ import "./globals.css"
 
 import { ThemeProvider } from "~/components/providers/theme-provider"
 import { cn } from "~/lib/utils"
+import { Toaster } from "~/ui/sonner"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,19 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange>
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable,
-          )}>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
-        </body>
-      </ThemeProvider>
+          <Toaster />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

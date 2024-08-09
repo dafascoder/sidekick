@@ -1,7 +1,7 @@
 import { Footer, LoginLink } from "~/components/landing"
 import { MainNav } from "~/components/navigation/main-nav"
-import { ModeToggle } from "~/components/ui/mode-toggle"
 import { landingConfig } from "~/config/constants.config"
+import { ModeToggle } from "~/ui/mode-toggle"
 
 export default async function LandingLayout({
   children,
@@ -15,7 +15,8 @@ export default async function LandingLayout({
           <div className="flex h-20 items-center justify-between py-6">
             <div
               className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-              aria-hidden="true">
+              aria-hidden="true"
+            >
               <div
                 className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-r from-bg-primary to-bg-foreground opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                 style={{
@@ -25,10 +26,10 @@ export default async function LandingLayout({
               />
             </div>
             <MainNav items={landingConfig.mainNav} />
-            <nav>
+            <div className="flex items-center space-x-4">
               <LoginLink />
               <ModeToggle />
-            </nav>
+            </div>
           </div>
         </header>
         <main className="flex-1">{children}</main>

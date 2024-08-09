@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { signOut } from "~/config/auth"
+import { auth, signOut } from "~/config/auth"
 import { Button } from "~/ui/button"
 import {
   DropdownMenu,
@@ -11,7 +11,13 @@ import {
   DropdownMenuTrigger,
 } from "~/ui/dropdown-menu"
 
-export function AvatarMenu() {
+export async function AvatarMenu() {
+  const session = await auth()
+
+  if (!session) {
+    return null
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -20,7 +26,7 @@ export function AvatarMenu() {
           size="icon"
           className="overflow-hidden rounded-full">
           <Image
-            src="/placeholder-user.jpg"
+            src={session.user?.image || "/avatar.svg"}
             width={36}
             height={36}
             alt="Avatar"
@@ -29,7 +35,7 @@ export function AvatarMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuItem>Support</DropdownMenuItem>

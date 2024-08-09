@@ -21,6 +21,15 @@ const imagePaths = {
 }
 
 const landingConfig: LandingConfig = {
+  LandingInfo: {
+    title: "Robin",
+    description:
+      "Your sidekick for managing your hardware and new hires. Get started today!",
+    cta: {
+      title: "Get Started",
+      href: "/docs",
+    },
+  },
   mainNav: [
     {
       title: "Features",

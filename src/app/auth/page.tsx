@@ -1,11 +1,11 @@
-import { Icons } from '~/components/icons';
+import Image from "next/image"
+import Link from "next/link"
 
-import Image from 'next/image';
-import Link from 'next/link';
+import { ChevronLeft } from "lucide-react"
 
-import { UserAuthForm } from '~/components/forms/userAuthForm';
-import { buttonVariants } from '~/components/ui/button';
-import { cn } from '~/lib/utils';
+import { UserAuthForm } from "~/components/forms/userAuthForm"
+import { buttonVariants } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
 
 export default async function LoginPage() {
   return (
@@ -13,12 +13,11 @@ export default async function LoginPage() {
       <Link
         href="/"
         className={cn(
-          buttonVariants({ variant: 'ghost' }),
-          'absolute left-4 top-4 md:left-8 md:top-8',
-        )}
-      >
+          buttonVariants({ variant: "ghost" }),
+          "absolute left-4 top-4 md:left-8 md:top-8",
+        )}>
         <>
-          <Icons.chevronLeft className="mr-2 h-4 w-4" />
+          <ChevronLeft className="mr-2 h-4 w-4" />
           Back
         </>
       </Link>
@@ -44,5 +43,5 @@ export default async function LoginPage() {
         <UserAuthForm />
       </div>
     </div>
-  );
+  )
 }

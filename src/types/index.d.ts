@@ -1,5 +1,14 @@
 import type { LucideIcon } from "lucide-react"
 
+export type LandingInfo = {
+  title: string
+  description: string
+  cta: {
+    title: string
+    href: string
+  }
+}
+
 export type NavItem = {
   title: string
   href: string
@@ -20,6 +29,7 @@ export type SiteConfig = {
 }
 
 export type LandingConfig = {
+  LandingInfo: LandingInfo
   mainNav: MainNavItem[]
 }
 

@@ -1,6 +1,6 @@
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { Label } from "@radix-ui/react-label"
 
-import { Icons } from "~/components/icons"
 import { Button, buttonVariants } from "~/components/ui/button"
 import {
   Card,
@@ -57,7 +57,7 @@ export const UserAuthForm = () => {
                 buttonVariants({ variant: "secondary" }),
                 "w-full",
               )}>
-              <Icons.gitHub className="mr-2 h-4 w-4" />
+              <GitHubLogoIcon className="mr-2 h-4 w-4" />
               Sign in with Github
             </Button>
           </form>

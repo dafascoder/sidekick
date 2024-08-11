@@ -63,6 +63,21 @@ export const columns: ColumnDef<Hardware>[] = [
     },
   },
   {
+    accessorKey: "oktaUser",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Okta User" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex space-x-2">
+          <span className="max-w-[500px] truncate font-medium">
+            {row.getValue("oktaUser")}
+          </span>
+        </div>
+      )
+    },
+  },
+  {
     accessorKey: "status",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Status" />

@@ -3,77 +3,50 @@ import path from "path";
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { faker } from "@faker-js/faker";
-import {
-  CheckCircledIcon,
-  CircleIcon,
-  CrossCircledIcon,
-  QuestionMarkCircledIcon,
-  StopwatchIcon,
-} from "@radix-ui/react-icons"
 
 
 // Workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export const labels = [
-  {
-    value: "bug",
-    label: "Bug",
-  },
-  {
-    value: "feature",
-    label: "Feature",
-  },
-  {
-    value: "documentation",
-    label: "Documentation",
-  },
-]
+const statuses = [
+  { value: "available", label: "Available", icon: "AvailableIcon" },
+  { value: "in_use", label: "In Use", icon: "InUseIcon" },
+  { value: "maintenance", label: "Maintenance", icon: "MaintenanceIcon" },
+  { value: "done", label: "Done", icon: "CheckCircledIcon" },
+  { value: "canceled", label: "Canceled", icon: "CrossCircledIcon" },
+];
 
+const labels = [
+  { value: "laptop", label: "Laptop" },
+  { value: "desktop", label: "Desktop" },
+  { value: "server", label: "Server" },
+  { value: "network", label: "Network" },
+];
 
-export const statuses = [
-  {
-    value: "backlog",
-    label: "Backlog",
-    icon: QuestionMarkCircledIcon,
-  },
-  {
-    value: "todo",
-    label: "Todo",
-    icon: CircleIcon,
-  },
-  {
-    value: "in progress",
-    label: "In Progress",
-    icon: StopwatchIcon,
-  },
-  {
-    value: "done",
-    label: "Done",
-    icon: CheckCircledIcon,
-  },
-  {
-    value: "canceled",
-    label: "Canceled",
-    icon: CrossCircledIcon,
-  },
-]
+let idCounter = 1;
 
 const hardware = Array.from({ length: 100 }, () => ({
-  id: faker.string.uuid(),
+  id: idCounter++,
   title: faker.commerce.productName(),
-  status: faker.helpers.arrayElement(statuses),
-  label: faker.helpers.arrayElement(labels),
+  status: faker.helpers.arrayElement(statuses).value,
+  label: faker.helpers.arrayElement(labels).value,
   assignee: faker.person.fullName(),
-  oktaUser: faker.internet.userName(),
-  kandjiUser: faker.internet.userName(),
-  kolideUser: faker.internet.userName(),
+  oktaUser: faker.internet.email(),
+  kandjiUser: faker.internet.email(),
+  kolideUser: faker.internet.email(),
 }));
+
+// Convert BigInt values to strings before serialization
+const hardwareWithStringIds = hardware.map(item => ({
+  ...item,
+  id: item.id.toString(),
+}));
+
 
 fs.writeFileSync(
   path.join(__dirname, "hardware.json"),
-  JSON.stringify(hardware, null, 2)
+  JSON.stringify(hardwareWithStringIds, null, 2)
 );
 
 console.log("✅ hardware data generated.");

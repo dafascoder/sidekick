@@ -7,8 +7,8 @@ import { db } from "~/db/db"
 import { accounts, sessions, users, verificationTokens } from "~/db/schema"
 
 import Resend from "next-auth/providers/resend"
-import { env } from "../../env.mjs"
 import { authConfig } from "./auth.config"
+import { env } from "./env.mjs"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,

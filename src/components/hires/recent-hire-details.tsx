@@ -44,7 +44,7 @@ function RecentHireCard(data: RecentHireCardProps) {
   return (
     <>
       <Card className="overflow-hidden">
-        <CardHeader className="flex flex-row items-start bg-muted/50 dark:bg-muted/20">
+        <CardHeader className="flex flex-row items-start bg-muted/50 dark:bg-muted/60">
           <div className="grid gap-0.5">
             <CardTitle className="group flex items-center gap-2 text-lg">
               {data.orderNumber}
@@ -129,7 +129,7 @@ function RecentHireCard(data: RecentHireCardProps) {
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex flex-row items-center  bg-muted/50 px-6 py-3">
+        <CardFooter className="flex flex-row items-center  bg-muted/50 dark:bg-muted/60 px-6 py-3">
           <div className="text-xs text-muted-foreground">
             Updated <time dateTime="2023-11-23">{data.updatedAt}</time>
           </div>

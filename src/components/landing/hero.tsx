@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 
 import Image from "next/image"
 
@@ -46,12 +46,14 @@ export const Hero = ({ title, description }: HeroProps) => {
           <div className="mt-10 flex items-center gap-x-6">
             <a
               href="#"
-              className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-accent shadow-sm hover:bg-secordary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-accent shadow-sm hover:bg-secordary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
               Get started
             </a>
             <a
               href="#"
-              className="text-sm font-semibold leading-6 text-gray-900">
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
               Learn more <span aria-hidden="true">→</span>
             </a>
           </div>

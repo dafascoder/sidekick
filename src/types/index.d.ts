@@ -1,5 +1,12 @@
 import type { LucideIcon } from "lucide-react"
 
+export type DashboardCardConfig = {
+  Icon: ReactNode
+  amount: number
+  percentChange: number
+  title: string
+}
+
 export type LandingInfo = {
   title: string
   description: string
